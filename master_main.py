@@ -909,7 +909,7 @@ elif view_mode == "📈 Analytics":
         ax.set_facecolor('none')
         fig.patch.set_alpha(0)
         for spine in ax.spines.values():
-            spine.set_edgecolor('rgba(255,255,255,0.05)')
+            spine.set_edgecolor((1, 1, 1, 0.05))
         for bar in bars:
             ax.text(bar.get_width() + 0.1, bar.get_y() + bar.get_height() / 2,
                     str(int(bar.get_width())), va='center', color='#6b8099', fontsize=8)
