@@ -1,60 +1,92 @@
-# main.py
 
-from Modules import (
-    bow_tie_risk_tool,
-    explosion_risk_prediction,
-    failure_probability_estimator,
-    fault_tree_analysis_simulator,
-    gas_leak_dispersion_simulation,
-    hazop_risk_ranking,
-    monte_carlo_risk_simulator,
-    reliability_block_diagram,
-    safety_kpi_dashboard,
-    sil_classification_tool
-)
+import sys
+import streamlit as st
+
+from Process_Safety_Risk_Analytics.Modules import bow_tie_risk_tool
+from Process_Safety_Risk_Analytics.Modules import explosion_risk_prediction
+from Process_Safety_Risk_Analytics.Modules import failure_probability_estimator
+from Process_Safety_Risk_Analytics.Modules import fault_tree_analysis_simulator
+from Process_Safety_Risk_Analytics.Modules import gas_leak_dispersion_simulation
+from Process_Safety_Risk_Analytics.Modules import hazop_risk_ranking
+from Process_Safety_Risk_Analytics.Modules import monte_carlo_risk_simulator
+from Process_Safety_Risk_Analytics.Modules import reliability_block_diagram
+from Process_Safety_Risk_Analytics.Modules import safety_kpi_dashboard
+from Process_Safety_Risk_Analytics.Modules import sil_classification_tool
+
+# ── Project registry ──────────────────────────────────────────
+PROJECTS = {
+    "1":  ("Bow-Tie Risk Tool",               bow_tie_risk_tool),
+    "2":  ("Explosion Risk Prediction",        explosion_risk_prediction),
+    "3":  ("Failure Probability Estimator",    failure_probability_estimator),
+    "4":  ("Fault Tree Analysis Simulator",    fault_tree_analysis_simulator),
+    "5":  ("Gas Leak Dispersion Simulation",   gas_leak_dispersion_simulation),
+    "6":  ("HAZOP Risk Ranking",               hazop_risk_ranking),
+    "7":  ("Monte Carlo Risk Simulator",       monte_carlo_risk_simulator),
+    "8":  ("Reliability Block Diagram",        reliability_block_diagram),
+    "9":  ("Safety KPI Dashboard",             safety_kpi_dashboard),
+    "10": ("SIL Classification Tool",          sil_classification_tool),
+}
+
+
+# ── Streamlit run() — called by master_main.py ───────────────
+def run():
+    """
+    Entry point for master_main.py launcher.
+    Renders a Streamlit UI to select and run any sub-module.
+    Returns a dict of results for CSV/PDF export.
+    """
+    st.markdown("### 🛡️ Process Safety & Risk Analytics")
+    st.caption("Select a sub-module to run:")
+
+    options = {f"{k}. {v[0]}": v[1] for k, v in PROJECTS.items()}
+    selected_label = st.selectbox("Choose a risk analysis tool:", list(options.keys()))
+    selected_mod = options[selected_label]
+
+    results = {}
+
+    if st.button("▶ Run Selected Tool", use_container_width=True):
+        with st.spinner(f"Running {selected_label}..."):
+            try:
+                output = selected_mod.run()
+                if isinstance(output, dict):
+                    results = output
+                elif isinstance(output, tuple) and len(output) == 2:
+                    _, results = output
+                elif isinstance(output, tuple) and len(output) == 3:
+                    _, results, _ = output
+                else:
+                    results = {"Status": "Completed", "Module": selected_label}
+            except Exception as e:
+                st.error(f"❌ Error running module: {e}")
+                results = {"Error": str(e)}
+
+    return results
+
+
+# ── CLI entry point (local terminal use) ─────────────────────
+def show_menu():
+    print("\n=== Industrial Risk Analysis Suite ===")
+    print("Select a module to run:")
+    for key, (name, _) in PROJECTS.items():
+        print(f"  {key}. {name}")
+    print("  0. Exit")
+
 
 def main():
-    print("=== Industrial Risk Analysis Suite ===")
-    print("Select a module to run:")
-    print("1. Bow-Tie Risk Tool")
-    print("2. Explosion Risk Prediction")
-    print("3. Failure Probability Estimator")
-    print("4. Fault Tree Analysis Simulator")
-    print("5. Gas Leak Dispersion Simulation")
-    print("6. HAZOP Risk Ranking")
-    print("7. Monte Carlo Risk Simulator")
-    print("8. Reliability Block Diagram")
-    print("9. Safety KPI Dashboard")
-    print("10. SIL Classification Tool")
-    print("0. Exit")
-
     while True:
-        choice = input("Enter your choice (0-10): ")
-        if choice == '1':
-            bow_tie_risk_tool.run()
-        elif choice == '2':
-            explosion_risk_prediction.run()
-        elif choice == '3':
-            failure_probability_estimator.run()
-        elif choice == '4':
-            fault_tree_analysis_simulator.run()
-        elif choice == '5':
-            gas_leak_dispersion_simulation.run()
-        elif choice == '6':
-            hazop_risk_ranking.run()
-        elif choice == '7':
-            monte_carlo_risk_simulator.run()
-        elif choice == '8':
-            reliability_block_diagram.run()
-        elif choice == '9':
-            safety_kpi_dashboard.run()
-        elif choice == '10':
-            sil_classification_tool.run()
-        elif choice == '0':
+        show_menu()
+        choice = input("\nEnter your choice (0-10): ").strip()
+
+        if choice == "0":
             print("Exiting program...")
             break
+        elif choice in PROJECTS:
+            print(f"\nRunning: {PROJECTS[choice][0]}")
+            print("-" * 50)
+            PROJECTS[choice][1].run()
         else:
-            print("Invalid choice. Try again.")
+            print("❌ Invalid choice. Try again.")
+
 
 if __name__ == "__main__":
     main()
