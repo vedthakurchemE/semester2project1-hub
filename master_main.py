@@ -26,49 +26,31 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap');
 
-/* ── Reset & Base ── */
-html, body, [class*="css"] {
-    font-family: 'Outfit', sans-serif;
-}
+html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
 
-/* ── App Background ── */
 .stApp {
     background-color: #060a10;
     background-image:
-        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0, 200, 150, 0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0, 120, 255, 0.06) 0%, transparent 60%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 60px,
-            rgba(255,255,255,0.012) 60px,
-            rgba(255,255,255,0.012) 61px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 60px,
-            rgba(255,255,255,0.012) 60px,
-            rgba(255,255,255,0.012) 61px
-        );
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0,200,150,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,120,255,0.06) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px);
     color: #d0dae8;
 }
 
-/* ── Sidebar ── */
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg, #07111f 0%, #050d18 100%);
-    border-right: 1px solid rgba(0, 220, 160, 0.12);
+    border-right: 1px solid rgba(0,220,160,0.12);
 }
 [data-testid="stSidebar"] * { color: #a8bdd4 !important; }
 [data-testid="stSidebar"] .stRadio label { font-size: 0.88rem !important; }
 
-/* ── Hero ── */
 .hero-wrap {
     position: relative;
-    border: 1px solid rgba(0, 220, 160, 0.18);
+    border: 1px solid rgba(0,220,160,0.18);
     border-radius: 24px;
     padding: 70px 50px 60px;
     overflow: hidden;
@@ -122,11 +104,7 @@ header {visibility: hidden;}
     margin-bottom: 28px;
     letter-spacing: 0.3px;
 }
-.hero-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero-chip {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
@@ -138,28 +116,21 @@ header {visibility: hidden;}
     letter-spacing: 0.5px;
 }
 
-/* ── Stat Cards ── */
-.stat-row { display: flex; gap: 16px; margin-bottom: 32px; }
 .stat-box {
-    flex: 1;
     background: rgba(255,255,255,0.025);
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 14px;
     padding: 22px 18px;
     text-align: center;
-    transition: border-color 0.3s, transform 0.3s;
     position: relative;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 .stat-box::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, #00dc9f, #0078ff);
-}
-.stat-box:hover {
-    border-color: rgba(0,220,160,0.3);
-    transform: translateY(-4px);
 }
 .stat-val {
     font-family: 'Syne', sans-serif;
@@ -177,7 +148,6 @@ header {visibility: hidden;}
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* ── Section Headers ── */
 .sec-title {
     font-family: 'Syne', sans-serif;
     font-size: 1.6rem;
@@ -196,7 +166,6 @@ header {visibility: hidden;}
     opacity: 0.75;
 }
 
-/* ── Project Cards ── */
 .proj-card {
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.07);
@@ -204,7 +173,6 @@ header {visibility: hidden;}
     padding: 26px 28px;
     margin-bottom: 14px;
     position: relative;
-    transition: all 0.3s;
     overflow: hidden;
 }
 .proj-card::before {
@@ -213,11 +181,6 @@ header {visibility: hidden;}
     left: 0; top: 0; bottom: 0; width: 3px;
     background: linear-gradient(180deg, #00dc9f, #0078ff);
     border-radius: 3px 0 0 3px;
-}
-.proj-card:hover {
-    border-color: rgba(0,220,160,0.25);
-    background: rgba(0,220,160,0.03);
-    transform: translateX(4px);
 }
 .proj-title {
     font-family: 'Syne', sans-serif;
@@ -239,7 +202,6 @@ header {visibility: hidden;}
     letter-spacing: 0.3px;
 }
 
-/* ── Result Items ── */
 .res-item {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
@@ -258,7 +220,6 @@ header {visibility: hidden;}
     color: #7dd3fc;
 }
 
-/* ── Buttons ── */
 .stButton > button {
     background: linear-gradient(135deg, #00dc9f, #0096ff) !important;
     color: #060a10 !important;
@@ -285,7 +246,6 @@ header {visibility: hidden;}
     font-size: 0.78rem !important;
 }
 
-/* ── Expanders ── */
 .streamlit-expanderHeader {
     background: rgba(255,255,255,0.03) !important;
     border: 1px solid rgba(255,255,255,0.07) !important;
@@ -300,7 +260,6 @@ header {visibility: hidden;}
     border-radius: 0 0 10px 10px !important;
 }
 
-/* ── Inputs ── */
 .stSelectbox > div > div,
 .stTextArea > div > div,
 .stTextInput > div > div {
@@ -310,13 +269,7 @@ header {visibility: hidden;}
     color: #d0dae8 !important;
     font-family: 'Outfit', sans-serif !important;
 }
-.stSelectbox > div > div:focus-within,
-.stTextInput > div > div:focus-within {
-    border-color: rgba(0,220,160,0.5) !important;
-    box-shadow: 0 0 0 3px rgba(0,220,160,0.08) !important;
-}
 
-/* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
     background: rgba(255,255,255,0.02) !important;
     border-radius: 10px !important;
@@ -334,7 +287,6 @@ header {visibility: hidden;}
     color: #00dc9f !important;
 }
 
-/* ── Metrics ── */
 [data-testid="stMetric"] {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
@@ -346,15 +298,11 @@ header {visibility: hidden;}
     color: #00dc9f !important;
 }
 
-/* ── Progress Bar ── */
 .stProgress > div > div > div {
     background: linear-gradient(90deg, #00dc9f, #0096ff) !important;
 }
-
-/* ── Alerts ── */
 .stAlert { border-radius: 10px !important; }
 
-/* ── Info Card ── */
 .info-block {
     background: rgba(0,120,255,0.06);
     border: 1px solid rgba(0,120,255,0.18);
@@ -369,19 +317,12 @@ header {visibility: hidden;}
     margin-bottom: 8px;
 }
 
-/* ── Footer ── */
 .footer-card {
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 14px;
     padding: 24px;
     text-align: center;
-    transition: all 0.3s;
-}
-.footer-card:hover {
-    border-color: rgba(0,220,160,0.3);
-    background: rgba(0,220,160,0.04);
-    transform: translateY(-3px);
 }
 .footer-card a {
     color: #00dc9f !important;
@@ -391,10 +332,7 @@ header {visibility: hidden;}
 }
 .footer-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
 
-/* ── Divider ── */
 hr { border-color: rgba(255,255,255,0.06) !important; margin: 28px 0 !important; }
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(0,220,160,0.3); border-radius: 4px; }
@@ -457,11 +395,11 @@ PROJECT_METADATA = {
 
 # ── Project suite → module mapping ────────────────────────────
 PROJECT_SUITES = {
-    "⚙️ Advanced Process Control & Instrumentation":  "Advanced_Process_Control.Modules.main1",
-    "🤖 Machine Learning for Process Systems":         "Machine_Learning_for_Process_Systems.Modules.main5",
-    "📐 Process Optimization":                         "Process_Optimization.Modules.main3",
-    "🛡️ Process Safety & Risk Analytics":             "Process_Safety_Risk_Analytics.Modules.main4",
-    "📊 Statistical Inference & Design of Experiments": "Statistical_Inference_DOE.modules.main2",
+    "⚙️ Advanced Process Control & Instrumentation":    "Advanced_Process_Control.Modules.main1",
+    "🤖 Machine Learning for Process Systems":           "Machine_Learning_for_Process_Systems.Modules.main5",
+    "📐 Process Optimization":                           "Process_Optimization.Modules.main3",
+    "🛡️ Process Safety & Risk Analytics":               "Process_Safety_Risk_Analytics.Modules.main4",
+    "📊 Statistical Inference & Design of Experiments":  "Statistical_Inference_DOE.modules.main2",
 }
 
 # ── Project root path ─────────────────────────────────────────
@@ -544,9 +482,9 @@ def get_popular(limit=3):
 def get_analytics():
     conn = sqlite3.connect(DB_FILE)
     try:
-        total = pd.read_sql_query("SELECT COUNT(*) as n FROM analytics", conn).iloc[0]['n']
-        fb    = pd.read_sql_query("SELECT COUNT(*) as n FROM feedback", conn).iloc[0]['n']
-        res   = pd.read_sql_query("SELECT COUNT(*) as n FROM results", conn).iloc[0]['n']
+        total  = pd.read_sql_query("SELECT COUNT(*) as n FROM analytics", conn).iloc[0]['n']
+        fb     = pd.read_sql_query("SELECT COUNT(*) as n FROM feedback", conn).iloc[0]['n']
+        res    = pd.read_sql_query("SELECT COUNT(*) as n FROM results", conn).iloc[0]['n']
         top_df = pd.read_sql_query(
             "SELECT project, COUNT(*) as n FROM analytics GROUP BY project ORDER BY n DESC LIMIT 1", conn
         )
@@ -588,11 +526,11 @@ if "loaded" not in st.session_state:
             Semester 2<br><span style="color:#00dc9f;">Engineering Hub</span>
         </h1>
         <p style="color:rgba(208,218,232,0.4);font-size:0.9rem;margin-bottom:40px;">
-            Advanced Process Engineering • Ved Thakur • IPS Academy
+            Advanced Process Engineering &nbsp;·&nbsp; Ved Thakur &nbsp;·&nbsp; IPS Academy
         </p>
     </div>
     """, unsafe_allow_html=True)
-    pb = st.progress(0)
+    pb  = st.progress(0)
     txt = st.empty()
     modules_loading = [
         "Advanced Process Control",
@@ -603,10 +541,10 @@ if "loaded" not in st.session_state:
     ]
     for i in range(100):
         pb.progress(i + 1)
-        module = modules_loading[min(i // 20, len(modules_loading) - 1)]
+        mod_label = modules_loading[min(i // 20, len(modules_loading) - 1)]
         txt.markdown(
             f"<p style='text-align:center;font-family:JetBrains Mono,monospace;"
-            f"font-size:0.75rem;color:#00dc9f;'> Loading {module}... {i+1}%</p>",
+            f"font-size:0.75rem;color:#00dc9f;'>Loading {mod_label}... {i+1}%</p>",
             unsafe_allow_html=True
         )
         time.sleep(0.010)
@@ -622,26 +560,23 @@ if "landing_done" not in st.session_state:
 
 if not st.session_state["landing_done"]:
 
-    # Hero
     st.markdown("""
     <div class="hero-wrap">
         <p class="hero-eyebrow">// IPS Academy &nbsp;·&nbsp; Semester 2 &nbsp;·&nbsp; 2025</p>
         <h1 class="hero-name">Ved <span>Thakur</span></h1>
         <p class="hero-subtitle">
-            Advanced Process Engineering Portfolio &nbsp;—&nbsp;
-            5 Integrated Project Suites
+            Advanced Process Engineering Portfolio &nbsp;—&nbsp; 5 Integrated Project Suites
         </p>
         <div class="hero-chips">
             <span class="hero-chip">Process Control</span>
             <span class="hero-chip">Machine Learning</span>
             <span class="hero-chip">Optimization</span>
             <span class="hero-chip">Risk Analytics</span>
-            <span class="hero-chip">Statistics & DOE</span>
+            <span class="hero-chip">Statistics &amp; DOE</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Stats
     col1, col2, col3, col4 = st.columns(4)
     for col, (val, lbl) in zip(
         [col1, col2, col3, col4],
@@ -658,7 +593,6 @@ if not st.session_state["landing_done"]:
 
     st.markdown("---")
 
-    # Project overview cards
     st.markdown('<p class="sec-title">Project Suites Overview</p>', unsafe_allow_html=True)
     st.markdown('<p class="sec-sub">// Semester 2 core engineering subjects</p>', unsafe_allow_html=True)
 
@@ -679,7 +613,6 @@ if not st.session_state["landing_done"]:
 
     st.markdown("---")
 
-    # About + Quick Start
     col_a, col_b = st.columns([3, 2])
     with col_a:
         st.markdown("""
@@ -688,8 +621,8 @@ if not st.session_state["landing_done"]:
         <p style="color:rgba(208,218,232,0.65);font-size:0.9rem;line-height:1.7;">
         This Semester 2 hub integrates five advanced engineering disciplines into a single
         Streamlit platform. Each suite is independently executable and outputs structured
-        results with CSV/PDF export capabilities. All runs are logged to a local SQLite
-        database for session analytics and reproducibility.
+        results with CSV/PDF export. All runs are logged to a local SQLite database for
+        session analytics and reproducibility.
         </p>
         </div>
         """, unsafe_allow_html=True)
@@ -706,7 +639,6 @@ if not st.session_state["landing_done"]:
             > ⚡ Use **Run All** to batch-execute all 5 suites
             """)
 
-    # CTA
     col1, col2, col3 = st.columns(3)
     with col1:
         if st.button("⚡ Enter Hub", use_container_width=True):
@@ -727,11 +659,9 @@ st.markdown("""
     <span style="font-size:2.2rem;">⚗️</span>
     <div>
         <p style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;
-                  color:#eaf2ff;margin:0;letter-spacing:-0.5px;">
-            Semester 2 Engineering Hub
-        </p>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;
-                  color:#00dc9f;margin:0;letter-spacing:2px;text-transform:uppercase;opacity:0.75;">
+                  color:#eaf2ff;margin:0;letter-spacing:-0.5px;">Semester 2 Engineering Hub</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00dc9f;
+                  margin:0;letter-spacing:2px;text-transform:uppercase;opacity:0.75;">
             // 5 Advanced Project Suites &nbsp;·&nbsp; Ved Thakur &nbsp;·&nbsp; IPS Academy
         </p>
     </div>
@@ -741,17 +671,12 @@ st.markdown("""
 # ── SIDEBAR ───────────────────────────────────────────────────
 st.sidebar.markdown("""
 <div style="text-align:center;padding:18px 0 10px;">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;
-              color:#00dc9f;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;">
-        // SEMESTER 2
-    </p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#00dc9f;
+              letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;">// SEMESTER 2</p>
     <p style="font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;
-              color:#eaf2ff;margin:0;letter-spacing:-0.5px;">
-        Engineering Hub
-    </p>
+              color:#eaf2ff;margin:0;letter-spacing:-0.5px;">Engineering Hub</p>
     <p style="font-size:0.72rem;color:rgba(208,218,232,0.35);margin:4px 0 0;">
-        Ved Thakur &nbsp;·&nbsp; IPS Academy
-    </p>
+        Ved Thakur &nbsp;·&nbsp; IPS Academy</p>
 </div>
 """, unsafe_allow_html=True)
 st.sidebar.markdown("---")
@@ -763,7 +688,6 @@ view_mode = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 
-# Defaults
 choice  = None
 run_all = False
 
@@ -839,7 +763,7 @@ elif view_mode == "🎯 Project Gallery":
 # ── DATABASE VIEWER ───────────────────────────────────────────
 elif view_mode == "📊 Database":
     st.markdown('<p class="sec-title">📊 Database Viewer</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sec-sub">// All stored results & feedback</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sec-sub">// All stored results &amp; feedback</p>', unsafe_allow_html=True)
 
     tab1, tab2, tab3 = st.tabs(["📋 All Results", "💬 Feedback", "🔍 Filter by Project"])
 
@@ -872,22 +796,26 @@ elif view_mode == "📊 Database":
             dff = load_results(project=pf)
             if not dff.empty:
                 st.dataframe(dff, use_container_width=True)
-                st.download_button(f"📥 Export {pf}", dff.to_csv(index=False).encode(),
-                                   f"{pf.replace(' ','_')}_results.csv", "text/csv")
+                st.download_button(
+                    f"📥 Export {pf}",
+                    dff.to_csv(index=False).encode(),
+                    f"{pf.replace(' ','_')}_results.csv",
+                    "text/csv"
+                )
             else:
                 st.info(f"No data for '{pf}' yet.")
 
 # ── ANALYTICS ─────────────────────────────────────────────────
 elif view_mode == "📈 Analytics":
     st.markdown('<p class="sec-title">📈 Usage Analytics</p>', unsafe_allow_html=True)
-    st.markdown('<p class="sec-sub">// Platform engagement & session statistics</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sec-sub">// Platform engagement &amp; session statistics</p>', unsafe_allow_html=True)
 
     total, fb, res, top = get_analytics()
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Total Accesses", total)
     m2.metric("Results Stored", res)
     m3.metric("Feedback Count", fb)
-    m4.metric("Top Project", top[:25] + "…" if len(str(top)) > 25 else top)
+    m4.metric("Top Project", str(top)[:25] + "…" if len(str(top)) > 25 else str(top))
 
     conn = sqlite3.connect(DB_FILE)
     try:
@@ -900,19 +828,31 @@ elif view_mode == "📈 Analytics":
 
     if not df_an.empty:
         st.markdown("#### Visit Distribution")
-        fig, ax = plt.subplots(figsize=(9, 3.5), facecolor='none')
-        colors = ['#00dc9f', '#0096ff', '#a78bfa', '#fb923c', '#f472b6']
-        bars = ax.barh(df_an['project'], df_an['visits'],
-                       color=colors[:len(df_an)], height=0.55)
+        fig, ax = plt.subplots(figsize=(9, 3.5))
+        fig.patch.set_facecolor('#060a10')
+        ax.set_facecolor('#060a10')
+
+        bar_colors = ['#00dc9f', '#0096ff', '#a78bfa', '#fb923c', '#f472b6']
+        bars = ax.barh(
+            df_an['project'], df_an['visits'],
+            color=bar_colors[:len(df_an)], height=0.55
+        )
         ax.set_xlabel("Visits", color='#6b8099', fontsize=9)
         ax.tick_params(colors='#6b8099', labelsize=8)
-        ax.set_facecolor('none')
-        fig.patch.set_alpha(0)
+
+        # ✅ FIX: use tuple (R,G,B,A) instead of CSS rgba() string
         for spine in ax.spines.values():
-            spine.set_edgecolor((1, 1, 1, 0.05))
+            spine.set_edgecolor((1.0, 1.0, 1.0, 0.05))
+
         for bar in bars:
-            ax.text(bar.get_width() + 0.1, bar.get_y() + bar.get_height() / 2,
-                    str(int(bar.get_width())), va='center', color='#6b8099', fontsize=8)
+            ax.text(
+                bar.get_width() + 0.1,
+                bar.get_y() + bar.get_height() / 2,
+                str(int(bar.get_width())),
+                va='center', color='#6b8099', fontsize=8
+            )
+
+        plt.tight_layout()
         st.pyplot(fig)
         plt.close(fig)
     else:
@@ -1034,8 +974,8 @@ def run_project(display_name, module_path):
 
                 st.markdown(
                     "<p style='font-family:JetBrains Mono,monospace;font-size:0.72rem;"
-                    "color:#00dc9f;letter-spacing:2px;text-transform:uppercase;margin-top:16px;"
-                    "margin-bottom:8px;'>// Results</p>",
+                    "color:#00dc9f;letter-spacing:2px;text-transform:uppercase;"
+                    "margin-top:16px;margin-bottom:8px;'>// Results</p>",
                     unsafe_allow_html=True
                 )
                 for key, value in results.items():
@@ -1047,8 +987,8 @@ def run_project(display_name, module_path):
             if graphs:
                 st.markdown(
                     "<p style='font-family:JetBrains Mono,monospace;font-size:0.72rem;"
-                    "color:#00dc9f;letter-spacing:2px;text-transform:uppercase;margin-top:16px;"
-                    "margin-bottom:8px;'>// Visualizations</p>",
+                    "color:#00dc9f;letter-spacing:2px;text-transform:uppercase;"
+                    "margin-top:16px;margin-bottom:8px;'>// Visualizations</p>",
                     unsafe_allow_html=True
                 )
                 for g in graphs:
@@ -1057,7 +997,7 @@ def run_project(display_name, module_path):
                     elif isinstance(g, Image.Image):
                         st.image(g)
 
-            # Downloads
+            # ── Downloads ─────────────────────────────────────
             if results:
                 st.markdown("---")
                 dl1, dl2 = st.columns(2)
@@ -1074,46 +1014,49 @@ def run_project(display_name, module_path):
 
                 with dl2:
                     pdf_buf = io.BytesIO()
-                    c = canvas.Canvas(pdf_buf, pagesize=letter)
+                    cv = canvas.Canvas(pdf_buf, pagesize=letter)
                     W, H = letter
 
-                    # Header
-                    c.setFillColorRGB(0.0, 0.86, 0.62)
-                    c.rect(0, H - 72, W, 72, fill=True, stroke=False)
-                    c.setFillColorRGB(0.02, 0.04, 0.08)
-                    c.setFont("Helvetica-Bold", 16)
-                    safe = display_name.encode('ascii', errors='ignore').decode().strip()
-                    c.drawString(40, H - 36, safe or display_name)
-                    c.setFont("Helvetica", 8)
-                    c.drawString(40, H - 54, f"Generated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-                    c.drawString(40, H - 65, "Semester 2 Engineering Hub  |  Ved Thakur  |  IPS Academy")
+                    # Header bar
+                    cv.setFillColorRGB(0.0, 0.86, 0.62)
+                    cv.rect(0, H - 72, W, 72, fill=True, stroke=False)
+                    cv.setFillColorRGB(0.02, 0.04, 0.08)
+                    cv.setFont("Helvetica-Bold", 16)
+                    safe_name = display_name.encode('ascii', errors='ignore').decode().strip()
+                    cv.drawString(40, H - 36, safe_name or "Project Results")
+                    cv.setFont("Helvetica", 8)
+                    cv.drawString(40, H - 54,
+                                  f"Generated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                    cv.drawString(40, H - 65,
+                                  "Semester 2 Engineering Hub  |  Ved Thakur  |  IPS Academy")
 
                     # Results body
                     y = H - 100
-                    c.setFillColorRGB(0.12, 0.14, 0.17)
-                    c.setFont("Helvetica-Bold", 11)
-                    c.drawString(40, y, "Analysis Results")
+                    cv.setFillColorRGB(0.12, 0.14, 0.17)
+                    cv.setFont("Helvetica-Bold", 11)
+                    cv.drawString(40, y, "Analysis Results")
                     y -= 18
-                    c.setFont("Helvetica", 9.5)
-                    c.setFillColorRGB(0.2, 0.25, 0.3)
+                    cv.setFont("Helvetica", 9.5)
+                    cv.setFillColorRGB(0.2, 0.25, 0.3)
                     for k, v in results.items():
                         line = f"{k}: {v}".encode('ascii', errors='ignore').decode()
                         if len(line) > 100:
                             line = line[:97] + "..."
-                        c.drawString(50, y, line)
+                        cv.drawString(50, y, line)
                         y -= 16
                         if y < 60:
-                            c.showPage()
+                            cv.showPage()
                             y = H - 60
 
-                    # Footer
-                    c.setFillColorRGB(0.0, 0.86, 0.62)
-                    c.rect(0, 0, W, 24, fill=True, stroke=False)
-                    c.setFillColorRGB(0.02, 0.04, 0.08)
-                    c.setFont("Helvetica", 7.5)
-                    c.drawString(40, 8, "Developed by Ved Thakur  |  IPS Academy Semester 2  |  Advanced Process Engineering")
+                    # Footer bar
+                    cv.setFillColorRGB(0.0, 0.86, 0.62)
+                    cv.rect(0, 0, W, 24, fill=True, stroke=False)
+                    cv.setFillColorRGB(0.02, 0.04, 0.08)
+                    cv.setFont("Helvetica", 7.5)
+                    cv.drawString(40, 8,
+                                  "Developed by Ved Thakur  |  IPS Academy Semester 2  |  Advanced Process Engineering")
 
-                    c.save()
+                    cv.save()
                     pdf_buf.seek(0)
                     st.download_button(
                         "📄 Download PDF",
@@ -1125,7 +1068,7 @@ def run_project(display_name, module_path):
 
         except ModuleNotFoundError:
             st.error(f"❌ Module not found: `{module_path}`")
-            st.info("💡 Check folder name, `__init__.py` files, and module path spelling.")
+            st.info("💡 Check folder names, `__init__.py` files, and module path spelling.")
         except Exception:
             st.error(f"❌ Error in `{display_name}`")
             with st.expander("🔍 Traceback"):
@@ -1210,7 +1153,7 @@ with fc2:
     <div class="footer-card">
         <span class="footer-icon">💼</span>
         <strong style="color:#eaf2ff;font-size:0.85rem;">LinkedIn</strong><br>
-        <a href="https://www.linkedin.com/in/ved-thakur-0b79bb36a/" target="_blank">Connect →</a>
+        <a href="https://www.linkedin.com/in/ved-thakur-0b79bb36a/" target="_blank">Connect &#8594;</a>
     </div>
     """, unsafe_allow_html=True)
 with fc3:
@@ -1218,7 +1161,7 @@ with fc3:
     <div class="footer-card">
         <span class="footer-icon">🔗</span>
         <strong style="color:#eaf2ff;font-size:0.85rem;">GitHub</strong><br>
-        <a href="https://github.com/" target="_blank">View Projects →</a>
+        <a href="https://github.com/vedthakurchemE" target="_blank">View Projects &#8594;</a>
     </div>
     """, unsafe_allow_html=True)
 
