@@ -1,16 +1,16 @@
 import streamlit as st
 
 # Import modules from folder
-from modules import anova_reactor_yield
-from modules import confidence_interval_estimator
-from modules import control_chart_spc
-from modules import hypothesis_testing_process
-from modules import monte_carlo_process
-from modules import multicollinearity_detection
-from modules import regression_heat_transfer
-from modules import residual_analysis_tool
-from modules import response_surface_optimization
-from modules import taguchi_optimization
+from Modules import anova_reactor_yield
+from Modules import confidence_interval_estimator
+from Modules import control_chart_spc
+from Modules import hypothesis_testing_process
+from Modules import monte_carlo_process
+from Modules import multicollinearity_detection
+from Modules import regression_heat_transfer
+from Modules import residual_analysis_tool
+from Modules import response_surface_optimization
+from Modules import taguchi_optimization
 
 
 def main():
